@@ -69,7 +69,7 @@ final class PlaceholdersExtension implements Extension
             ->arrayNode('config_tags')
             ->treatNullLike(array())
             ->useAttributeAsKey('tag')
-            ->prototype('scalar')->end()
+            ->prototype('variable')->end()
             ->end()
             ->end()
             ->end();
