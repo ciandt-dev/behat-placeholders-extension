@@ -26,7 +26,7 @@ Feature: Placeholder chaining
           extensions:
               Ciandt\Behat\PlaceholdersExtension:
                   config_tags:
-                      ice_cream: %paths.base%/features/ice_cream.yml
+                      ice_cream: '%paths.base%/features/ice_cream.yml'
       """
 
     Scenario: Placeholder Chaining
