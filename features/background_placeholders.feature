@@ -43,7 +43,7 @@ Feature: Variant Branching
                       - chocolate
                       - pistachio
                   config_tags:
-                      ice_cream: %paths.base%/features/ice_cream.yml
+                      ice_cream: '%paths.base%/features/ice_cream.yml'
       """
     And a file named "features/ice_cream.yml" with:
       """

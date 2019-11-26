@@ -33,7 +33,7 @@ Feature: Variant Branching
               Ciandt\Behat\PlaceholdersExtension:
                   variant_tags: ~
                   config_tags:
-                      ice_cream: %paths.base%/features/ice_cream.yml
+                      ice_cream: '%paths.base%/features/ice_cream.yml'
       """
     And a file named "features/ice_cream.yml" with:
       """
