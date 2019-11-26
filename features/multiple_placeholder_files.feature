@@ -44,10 +44,10 @@ Feature: Multiple Placeholder Files
                       - pistachio
                   config_tags:
                       ice_cream:
-                          - %paths.base%/features/placeholders/default.yml
-                          - %paths.base%/features/placeholders/ice_cream_vanilla.yml
-                          - %paths.base%/features/placeholders/ice_cream_chocolate.yml
-                          - %paths.base%/features/placeholders/ice_cream_pistachio.yml
+                          - '%paths.base%/features/placeholders/default.yml'
+                          - '%paths.base%/features/placeholders/ice_cream_vanilla.yml'
+                          - '%paths.base%/features/placeholders/ice_cream_chocolate.yml'
+                          - '%paths.base%/features/placeholders/ice_cream_pistachio.yml'
       """
     And a file named "features/placeholders/default.yml" with:
       """
