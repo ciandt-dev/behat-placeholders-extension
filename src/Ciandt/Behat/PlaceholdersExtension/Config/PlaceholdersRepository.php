@@ -54,10 +54,23 @@ class PlaceholdersRepository
     private function loadConfigFiles($configs_mapping)
     {
         $placeholder_maps = array();
+
         foreach ($configs_mapping as $tag => $file_path) {
-            $placeholder_maps[$tag]['config'] = Yaml::parse(file_get_contents($file_path));
-            $placeholder_maps[$tag]['path'] = $file_path;
+            if (!is_array($file_path)) {
+                $file_path = [$file_path];
+            }
+            $placeholder_maps[$tag]['config'] = [];
+
+            foreach ($file_path as $path) {
+                $placeholder_maps[$tag]['config'] = array_merge_recursive(
+                    $placeholder_maps[$tag]['config'],
+                    Yaml::parse(file_get_contents($path))
+                );
+            }
+
+            $placeholder_maps[$tag]['path'] = implode(',', $file_path);
         }
+
         return $placeholder_maps;
     }
 
@@ -94,7 +107,7 @@ class PlaceholdersRepository
     private function replaceRecursively($placeholder, $replaced = array())
     {
         // if the current placeholder was already replaced before, this is a cyclic dependecy
-        if (in_array($placeholder, $replaced)){
+        if (in_array($placeholder, $replaced)) {
             $tree = implode('>', $replaced);
             throw new Exception("Cyclic placeholder dependecy detected. Trying to replace $placeholder again when already replaced: $tree");
         }
