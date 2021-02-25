@@ -62,7 +62,7 @@ class PlaceholdersRepository
             $placeholder_maps[$tag]['config'] = [];
 
             foreach ($file_path as $path) {
-                $placeholder_maps[$tag]['config'] = array_merge_recursive(
+                $placeholder_maps[$tag]['config'] = array_replace_recursive(
                     $placeholder_maps[$tag]['config'],
                     Yaml::parse(file_get_contents($path))
                 );
