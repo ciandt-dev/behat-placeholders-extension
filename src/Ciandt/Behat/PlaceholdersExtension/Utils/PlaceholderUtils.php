@@ -43,7 +43,7 @@ class PlaceholderUtils
         if (count($configTags) > 1) {
             throw new RedundantConfigTagException($configTags);
         }
-        return $configTags[0];
+        return array_values($configTags)[0];
     }
 
 
